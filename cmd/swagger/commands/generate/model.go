@@ -59,6 +59,7 @@ type Model struct {
 
 	NoStruct              bool     `long:"skip-struct" description:"when present will not generate the model struct" hidden:"deprecated"`
 	Name                  []string `long:"name" short:"n" description:"the model to generate, repeat for multiple (defaults to all). Same as --models"`
+	NoValidator           bool     `long:"skip-validator" description:"when present will not generate validators for model structs"`
 	AcceptDefinitionsOnly bool     `long:"accept-definitions-only" description:"accepts a partial swagger spec with only the definitions key"`
 }
 
@@ -67,7 +68,7 @@ func (m Model) apply(opts *generator.GenOpts) {
 	m.Models.apply(opts)
 
 	opts.IncludeModel = !m.NoStruct
-	opts.IncludeValidator = !m.NoStruct
+	opts.IncludeValidator = !m.NoStruct || !m.NoValidator
 	opts.AcceptDefinitionsOnly = m.AcceptDefinitionsOnly
 }
 

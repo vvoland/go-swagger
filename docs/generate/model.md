@@ -22,6 +22,7 @@ Help Options:
 
 [model command options]
       -n, --name=                                                                 the model to generate, repeat for multiple (defaults to all). Same as --models
+          --skip-validator                                                        when present will not generate validators for model structs
           --accept-definitions-only                                               accepts a partial swagger spec wih only the definitions key
 
     Options common to all code generation commands:
