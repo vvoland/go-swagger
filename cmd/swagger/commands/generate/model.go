@@ -67,7 +67,7 @@ func (m Model) apply(opts *generator.GenOpts) {
 	m.Models.apply(opts)
 
 	opts.IncludeModel = !m.NoStruct
-	opts.IncludeValidator = !m.NoStruct
+	opts.IncludeValidator = false
 	opts.AcceptDefinitionsOnly = m.AcceptDefinitionsOnly
 }
 
